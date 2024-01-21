@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <!-- 加入 socket.io script -->
+  <script src="/socket.io/socket.io.js"></script>
+  <title>線上舉手：建立教室</title>
+</head>
+
+<body>
+  <h1>線上舉手：建立教室</h1>
+  <p id="socket-id"></p>
+  <script>
+    const socket = io();
+
+    /* 監聽 server 端的事件 */
+    socket.on("connect", () => {
+      console.log(socket.id);
+      document.querySelector("#socket-id").innerHTML = socket.id;
+    });
+  </script>
+</body>
+
+</html>
